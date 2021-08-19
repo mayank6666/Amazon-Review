@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+</head>
+<style>
+	html{
+		font-size: 20px;
+	}
+	body{
+		background: lightgray;
+	}
+	.ml-container{
+		text-align: center; margin-top: 10%;
+	}
+	#g{
+		color: green;
+	}
+	#b{
+		color: red;
+	}
+</style>
+<body>
+	<div class="ml-container" >
+	<h2>Amazon Fine Food Review Sentiment Analysis.</h2>
+	<p>Enter Your Text Here which you want to predict Good Review or bad</p>
+	<p>minimum input characters is 10</p>
+	<form method="POST" action="{{url_for('predict')}}">
+
+		<input type="text" name="message" pattern=".{10,}" required>
+		<br/>
+
+		<input type="Submit" class="btn-info" value="Predict">
+	</form>
+
+	{% if prediction == 1 %}
+	<h2 id="g">Review Is Positive</h2>
+	{% elif prediction == 0 %}
+	<h2 id="b">Review Is Negative</h2>
+	{% endif %}
+	</div>
+</body>
+</html>
