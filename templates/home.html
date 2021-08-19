@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+	<link rel="stylesheet" type="text/css"  href="static/styles.css">
+</head>
+<style>
+	html{
+		font-size: 20px;
+	}
+	body{
+		background: lightgray;
+	}
+	.ml-container{
+		text-align: center; margin-top: 10%;
+	}
+</style>
+<body >
+
+	<header>
+		<div class="container">
+		<!-- <div id="brandname">
+			Spam Detector App using KNN(K-nearest neighbors)
+		</div>
+		<h2>Spam Detector For E-mail</h2> -->
+		
+	</div>
+	</header>
+
+	<div class="ml-container" >
+
+		<form action="{{ url_for('predict')}}" method="POST">
+			<h2>Amazon Fine Food Review Sentiment Analysis.</h2>
+		<p>Enter Your Text Here which you want to predict Good Review or bad</p>
+		<p>minimum input characters is 10</p>
+		<!-- <input type="text" name="comment"/> -->
+		<input type="text" name="message" pattern=".{10,}" required title="10 characters minimum">
+		<br/>
+
+		<input type="Submit" class="btn-info" value="Predict">
+		
+	</form>
+		
+	</div>
+</body>
+</html>
