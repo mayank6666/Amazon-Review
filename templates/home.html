@@ -1,47 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Home</title>
-	<!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
-	<link rel="stylesheet" type="text/css"  href="static/styles.css">
+	<title>Amazon</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+<!--===============================================================================================-->
 </head>
-<style>
-	html{
-		font-size: 20px;
-	}
-	body{
-		background: lightgray;
-	}
-	.ml-container{
-		text-align: center; margin-top: 10%;
-	}
-</style>
-<body >
+<body>
 
-	<header>
-		<div class="container">
-		<!-- <div id="brandname">
-			Spam Detector App using KNN(K-nearest neighbors)
+	<div class="bg-contact100" style="background-image: url('images/bg-01.jpg');">
+		<div class="container-contact100">
+			<div class="wrap-contact100">
+				<div class="contact100-pic js-tilt" data-tilt>
+					<img src="../static/images/img5.png" alt="IMG">
+				</div>
+
+				<form class="contact100-form validate-form" method="POST" action="{{url_for('predict')}}">
+					<span class="contact100-form-title">
+						Amazon Fine Food Sentiment Prediction
+					</span>
+
+
+					<div class="wrap-input100 validate-input" data-validate = "Message is required">
+						<textarea class="input100" name="message" placeholder="Enter Review Here"></textarea>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-contact100-form-btn">
+						<button class="contact100-form-btn">
+							Predict
+						</button>
+					</div>
+				</form>
+			
+			</div>
 		</div>
-		<h2>Spam Detector For E-mail</h2> -->
-		
 	</div>
-	</header>
-
-	<div class="ml-container" >
-
-		<form action="{{ url_for('predict')}}" method="POST">
-			<h2>Amazon Fine Food Review Sentiment Analysis.</h2>
-		<p>Enter Your Text Here which you want to predict Good Review or bad</p>
-		<p>minimum input characters is 10</p>
-		<!-- <input type="text" name="comment"/> -->
-		<input type="text" name="message" pattern=".{10,}" required title="10 characters minimum">
-		<br/>
-
-		<input type="Submit" class="btn-info" value="Predict">
-		
-	</form>
-		
-	</div>
-</body>
-</html>

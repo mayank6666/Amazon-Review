@@ -1,44 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
-	
+	<title>Amazon</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+<!--===============================================================================================-->
 </head>
-<style>
-	html{
-		font-size: 20px;
-	}
-	body{
-		background: lightgray;
-	}
-	.ml-container{
-		text-align: center; margin-top: 10%;
-	}
-	#g{
-		color: green;
-	}
-	#b{
-		color: red;
-	}
-</style>
 <body>
-	<div class="ml-container" >
-	<h2>Amazon Fine Food Review Sentiment Analysis.</h2>
-	<p>Enter Your Text Here which you want to predict Good Review or bad</p>
-	<p>minimum input characters is 10</p>
-	<form method="POST" action="{{url_for('predict')}}">
 
-		<input type="text" name="message" pattern=".{10,}" required>
-		<br/>
+	<div class="bg-contact100" style="background-image: url('images/bg-01.jpg');">
+		<div class="container-contact100">
+			<div class="wrap-contact100">
+				<div class="contact100-pic js-tilt" data-tilt>
+					<img src="../static/images/img5.png" alt="IMG">
+				</div>
 
-		<input type="Submit" class="btn-info" value="Predict">
-	</form>
+				<form class="contact100-form validate-form" method="POST" action="{{url_for('predict')}}">
+					<span class="contact100-form-title">
+						Amazon Fine Food Sentiment Prediction
+					</span>
 
-	{% if prediction == 1 %}
-	<h2 id="g">Review Is Positive</h2>
-	{% elif prediction == 0 %}
-	<h2 id="b">Review Is Negative</h2>
-	{% endif %}
+
+					<div class="wrap-input100 validate-input" data-validate = "Message is required">
+						<textarea class="input100" name="message" placeholder="Enter Review Here"></textarea>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-contact100-form-btn">
+						<button class="contact100-form-btn">
+							Predict
+						</button>
+						{% if prediction[0] == 0 %}
+						<h4>Review is negative</h4>
+						{% else %}
+						<h4>Review is positive</h4>
+						{%endif%}
+					</div>
+				</form>
+				
+			</div>
+		</div>
 	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
 </body>
 </html>
